@@ -3,7 +3,7 @@ import streamlit as st
 from streamlit_chat import message
 
 #st.header("LangChain - Documentation Helper Bot")
-st.header("Astro Framework - Documentation Helper Bot")
+st.header("LangChain Bot - Documentation Helper Bot")
 
 prompt = st.text_input("Prompt", placeholder="Enter your prompt here...")
 
