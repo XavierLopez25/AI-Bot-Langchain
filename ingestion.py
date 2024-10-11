@@ -18,9 +18,7 @@ embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
 
 
 def ingest_docs():
-    #loader = ReadTheDocsLoader("langchain-docs/api.python.langchain.com/en/latest", encoding='utf-8')
-    loader = ReadTheDocsLoader("Astro-docs/docs.astro.build/en", encoding='utf-8', patterns="*.html", custom_html_tag=('div',{}))
-
+    loader = ReadTheDocsLoader("langchain-docs/api.python.langchain.com/en/latest", encoding='utf-8')
     raw_documents = loader.load()
     print(f"Loaded {len(raw_documents)} raw documents")
 
@@ -29,8 +27,7 @@ def ingest_docs():
     print(f"Loaded {len(documents)} documents")
     for doc in documents:
         new_url = doc.metadata["source"]
-        #new_url = new_url.replace("langchain-docs", "https:/")
-        new_url = new_url.replace("Astro-docs\\", "https://")
+        new_url = new_url.replace("langchain-docs", "https://")
         new_url = new_url.replace("\\", "/")
         doc.metadata.update({"source": new_url})
 
